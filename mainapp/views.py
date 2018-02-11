@@ -1,8 +1,8 @@
-# coding: utf-8
 from django.shortcuts import render
 from .models import ProductType, Product, Spec
+from django.http import HttpResponse
 
-# Create your views here.
+
 def products_list(request):
     product_types = ProductType.objects.all()
     products = Product.objects.all()
@@ -20,4 +20,6 @@ def product(request, pk=None):
         'product': product,
         'product_specs': product_specs,
         }
+    if not product:
+        return HttpResponse('There is no product with id = {}'.format(pk), status=404)
     return render(request, 'product.html', context)
