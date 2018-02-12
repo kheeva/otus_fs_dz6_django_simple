@@ -9,7 +9,7 @@ You just need to download and install python3 if you already haven't: http://pyt
 
 Install the modules:
 ```
-pip3 install Django
+pip install -r requirements.txt
 ```
 
 Clone this repo:
